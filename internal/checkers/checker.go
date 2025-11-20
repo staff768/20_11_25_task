@@ -10,6 +10,9 @@ const (
 	StatusNotAvailable = "not available"
 )
 
+type LinkChecker interface {
+	Check(url string) string
+}
 type Checker struct {
 	client *http.Client
 }

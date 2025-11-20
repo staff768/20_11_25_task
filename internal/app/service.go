@@ -18,10 +18,10 @@ type LinkServicer interface {
 
 type Service struct {
 	storage storages.Storage
-	checker *checkers.Checker
+	checker checkers.LinkChecker
 }
 
-func NewService(s storages.Storage, c *checkers.Checker) *Service {
+func NewService(s storages.Storage, c checkers.LinkChecker) *Service {
 	return &Service{
 		storage: s,
 		checker: c,

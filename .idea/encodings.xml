@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="Encoding" addBOMForNewFiles="with BOM under Windows, with no BOM otherwise" />
+  <component name="Encoding" addBOMForNewFiles="with BOM under Windows, with no BOM otherwise">
+    <file url="file://$PROJECT_DIR$/cmd/web/handlers.go" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/internal/app/service.go" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/internal/checkers/checker.go" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/internal/models/models.go" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/internal/reporter/reporter.go" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/internal/storages/filestore.go" charset="ISO-8859-1" />
+  </component>
 </project>

@@ -2,6 +2,7 @@ package main
 
 import (
 	"19_11_2026_go/internal/app"
+	"19_11_2026_go/internal/models"
 	"encoding/json"
 	"errors"
 	"log"
@@ -16,16 +17,9 @@ func NewHandler(s app.LinkServicer) *Handler {
 	return &Handler{service: s}
 }
 
-type checkRequest struct {
-	Links []string `json:"links"`
-}
-type generateRequest struct {
-	IDs []int `json:"links_list"`
-}
-
 func (h *Handler) CheckLinksHandler(w http.ResponseWriter, r *http.Request) {
 
-	var req checkRequest
+	var req models.CheckRequest
 
 	err := json.NewDecoder(r.Body).Decode(&req)
 	if err != nil {
@@ -54,7 +48,7 @@ func (h *Handler) CheckLinksHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func (h *Handler) GenerateReportHandler(w http.ResponseWriter, r *http.Request) {
-	var req generateRequest
+	var req models.GenerateRequest
 	err := json.NewDecoder(r.Body).Decode(&req)
 	if err != nil {
 		http.Error(w, "Invalid request body", http.StatusBadRequest)

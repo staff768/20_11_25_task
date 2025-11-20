@@ -5,3 +5,9 @@ type Task struct {
 	URLs    []string          `json:"-"`
 	Results map[string]string `json:"links"`
 }
+type CheckRequest struct {
+	Links []string `json:"links"`
+}
+type GenerateRequest struct {
+	IDs []int `json:"links_list"`
+}
