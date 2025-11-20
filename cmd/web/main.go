@@ -15,13 +15,27 @@ import (
 
 const filePath = "storages.json"
 
+func checkFileExists(fname string) bool {
+	info, err := os.Stat(fname)
+	if os.IsNotExist(err) {
+		return false
+	}
+	return !info.IsDir()
+}
+
 func main() {
+	if !checkFileExists(filePath) {
+		_, err := os.Create(filePath)
+		if err != nil {
+			log.Fatalf("Error on creating storage.json - %v", err)
+		}
+	}
 	storage, err := storages.NewStorage(filePath)
 	if err != nil {
 		log.Fatalf("Error creating new storage %v", err)
 	}
 
-	checker := checkers.NewChecker(5 * time.Second)
+	checker := checkers.NewChecker(10 * time.Second)
 
 	linkService := app.NewService(storage, checker)
 
